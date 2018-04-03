@@ -2,10 +2,14 @@ package com.projet.dating.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Table(name = "adresse")
 @Entity
 public class Address {
+
+    @OneToMany(mappedBy = "adr")
+    private List<User> usersList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

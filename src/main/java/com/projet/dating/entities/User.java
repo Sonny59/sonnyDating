@@ -6,15 +6,34 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "utilisateur")
 public class User implements Serializable{
 
+    @OneToMany(mappedBy = "user")
+    private List<Picture> picturesList;
     @ManyToOne
-    @JoinColumn(name = "id_photo")
-    private Picture picture;
+    @JoinColumn(name = "id_app")
+    private Appearence app;
+    @ManyToOne
+    @JoinColumn(name = "id_situation")
+    private Situation sit;
+    @ManyToMany
+    private List<Hobbie> hobbiesList;
+    @ManyToOne
+    @JoinColumn(name = "id_adr")
+    private Address adr;
+
+    @ManyToMany(mappedBy = "usersList2")
+    private List<User> usersList1;
+    @ManyToMany
+    private List<User> usersList2;
+
+
+
+
 
 
     @Id

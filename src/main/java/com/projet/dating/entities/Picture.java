@@ -9,8 +9,9 @@ import java.util.List;
 @Entity
 public class Picture {
 
-    @OneToMany(mappedBy = "picture")
-    private List<User> usersList;
+    @ManyToOne
+    @JoinColumn(name = "email")
+    private User user;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,11 +60,5 @@ public class Picture {
         this.note = note;
     }
 
-    public List<User> getUsersList() {
-        return usersList;
-    }
 
-    public void setUsersList(List<User> usersList) {
-        this.usersList = usersList;
-    }
 }

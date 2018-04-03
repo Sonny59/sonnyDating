@@ -1,6 +1,23 @@
 body{
     background: lightgray;
+    
 }
 h1{
     text-align: center;
+}
+header{
+    height: 100px;
+    background: gray;
+}
+nav{
+    left: 500px;
+    display: inline-block;
+}
+ul{
+    display: inline-block;
+    list-style: none;
+    text-decoration: none;
+}
+div{
+    background-image: url("../img/love.jpg");
 }

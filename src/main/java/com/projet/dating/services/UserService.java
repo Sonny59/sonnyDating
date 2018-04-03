@@ -21,6 +21,9 @@ public class UserService {
     public List<User> getAllUsers(){
         return ur.findAll();
     }
+    public void setAllUsers(List<User> usersList){
+        ur.saveAll(usersList);
+    }
 
     
     //CRUD
@@ -28,13 +31,13 @@ public class UserService {
         return ur.findById(emailUser);
     }
 
-    public void delete(User User){
-        ur.delete(User);
+    public void delete(User u){
+        ur.delete(u);
     }
 
-    public void create(User User){
-        ur.save(User);
+    public void create(User u){
+        ur.save(u);
     }
 
-    public void update(User User) { ur.save(User);}
+    public void update(User u) { ur.save(u);}
 }

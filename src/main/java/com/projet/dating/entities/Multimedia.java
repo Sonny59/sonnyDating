@@ -2,10 +2,14 @@ package com.projet.dating.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Table(name = "multimedia")
 @Entity
 public class Multimedia {
+
+    @ManyToMany(mappedBy = "multisList")
+    private List<Hobbie> hobbiesList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

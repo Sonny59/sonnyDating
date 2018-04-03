@@ -15,24 +15,22 @@ import java.util.List;
 @Controller
 public class UserController {
 
+    @Autowired
     private  UserService us;
 
-    @Autowired
     public UserController(UserService us){
         this.us =us;
     }
 
-    private List<User> listeUsers = new ArrayList<>(Arrays.asList(
-            new User("toto@gmail.com",'h',"Bobo","toto","1980-12-10","0612345678","MaitreToto","mpToto","toto description",1),
-            new User("tata@gmail.com",'f',"Baba","tata","1990-08-25","0601020304","MaitreTata","mpTata","tata description",1),
-            new User("titi@gmail.com",'f',"Bibi","titi","2000-05-06","0611121314","MaitreTiti","mpToto","titi description",1)
-    ));
+
 
     @RequestMapping(value = "/listeUsers")
     @ResponseBody
     public List<User> getListeUsers(){
         return us.getAllUsers();
     }
+
+
 
 
 

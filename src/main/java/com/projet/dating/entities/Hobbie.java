@@ -2,10 +2,17 @@ package com.projet.dating.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Table(name = "centre_interet")
 @Entity
 public class Hobbie {
+
+    @ManyToMany(mappedBy = "hobbiesList")
+    private List<User> usersList;
+
+    @ManyToMany
+    private List<Multimedia> multisList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

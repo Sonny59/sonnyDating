@@ -2,10 +2,15 @@ package com.projet.dating.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Table(name = "apparence")
 @Entity
 public class Appearence {
+
+
+    @OneToMany(mappedBy = "app")
+    private List<User> usersList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
