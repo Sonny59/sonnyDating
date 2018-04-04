@@ -9,7 +9,7 @@ import java.util.List;
 public class Multimedia {
 
     @ManyToMany(mappedBy = "multisList")
-    private List<Hobbie> hobbiesList;
+    private List<Hobby> hobbiesList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

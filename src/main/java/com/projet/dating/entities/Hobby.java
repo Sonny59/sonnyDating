@@ -6,7 +6,7 @@ import java.util.List;
 
 @Table(name = "centre_interet")
 @Entity
-public class Hobbie {
+public class Hobby {
 
     @ManyToMany(mappedBy = "hobbiesList")
     private List<User> usersList;
@@ -26,10 +26,10 @@ public class Hobbie {
     @Column(name = "loisir",length = 25)
     private String leisure;
 
-    public Hobbie() {
+    public Hobby() {
     }
 
-    public Hobbie(@NotNull String sport, @NotNull String leisure) {
+    public Hobby(@NotNull String sport, @NotNull String leisure) {
         this.sport = sport;
         this.leisure = leisure;
     }

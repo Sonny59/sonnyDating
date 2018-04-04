@@ -24,6 +24,7 @@ public class UserService {
     public void setAllUsers(List<User> usersList){
         ur.saveAll(usersList);
     }
+    public User saveUser(User user){ return ur.save(user); }
 
     
     //CRUD

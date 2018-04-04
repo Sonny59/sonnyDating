@@ -32,8 +32,8 @@ public class Address {
     private String streetType;
 
     @NotNull
-    @Column(name = "rue",length = 50)
-    private String street;
+    @Column(name = "nom_voie",length = 50)
+    private String streetName;
 
     @NotNull
     @Column(name = "complement",length = 25)
@@ -51,7 +51,7 @@ public class Address {
         this.city = city;
         this.num = num;
         this.streetType = streetType;
-        this.street = street;
+        this.streetName = street;
         this.complt = complt;
         this.prefix = prefix;
     }
@@ -96,12 +96,12 @@ public class Address {
         this.streetType = streetType;
     }
 
-    public String getStreet() {
-        return street;
+    public String getStreetName() {
+        return streetName;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setStreetName(String street) {
+        this.streetName = streetName;
     }
 
     public String getComplt() {

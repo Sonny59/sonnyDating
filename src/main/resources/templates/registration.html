@@ -1,14 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/form.css">
     <title>formulaire</title>
+
 </head>
 <body>
+    <h1>INSCRIPTION</h1>
+    <form action="@{/registration}" method="post">
+        <fieldset>
+            <legend>Utilisateur</legend>
+                <p>Type d'utilisateur: <select th:field="*{user.userType}">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                </p>
+                <p>Sexe: <select th:field="*{user.gender}">
+                                <option value="Homme">Homme</option>
+                                <option value="Femme">Femme</option>
+                                <option value="Autre">Autre</option>
+                        </select>
+                </p>
+                <p>Email <input type="text" th:field="*{user.emailUser}"></p>
+                <p>Pseudo <input type="text" th:field="*{user.idUser}"></p>
+                <p>Mot de passe <input type="password" th:field="*{user.password}"></p>
+                <p>Nom <input type="text" th:field="*{user.lastName}"></p>
+                <p>prenom <input type="text" th:field="*{user.firstname}"></p>
+                <p>Date de naissance <input type="date" th:field="*{user.birthDate}"></p>
+                <p>Tél <input type="text" th:field="*{user.phone}"></p>
+                <p>description: </p><textarea rows="5" cols="30" th:field="*{user.descrition}">Vous pouvez vous décrire votre description ici.</textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Adresse</legend>
+            <p>N° de voie: <input type="number" th:field="*{address.num}"></p>
 
-    <form>
-
+            <p>Préfixe: <select th:field="*{address.prefix}">
+                            <option>Bis</option>
+                            <option>Ter</option>
+                            <option>Quater</option>
+                        </select>
+            </p>
+            <p>Type de voie: <select th:field="*{address.streetType}">
+                                <option>Rue</option>
+                                <option>Boulevard</option>
+                                <option>Avenue</option>
+                            </select>
+            </p>
+            <p>Nom de voie <input type="text" th:field="*{address.streetName}"></p>
+            <p>Complément <input type="text" th:field="*{address.complt}"></p>
+            <p>Ville <input type="text" th:field="*{address.city}"></p>
+            <p>Code postal <input type="text" th:field="*{address.postalCode}"></p>
+        </fieldset>
+        <fieldset>
+            <legend>Photos</legend>
+            <p>Lien URL photo <input type="file" th:field="*{picture.link}"></p>
+            <p>Note <input type="text" th:field="*{picture.note}"></p>
+        </fieldset>
+        <fieldset>
+            <legend>Situation</legend>
+            <p>Orientation sexuelle: <select th:field="*{situation.orientation}">
+                                        <option>Hétéro</option>
+                                        <option>Homo</option>
+                                        <option>Autre</option>
+                                    </select>
+            </p>
+            <p>Statut Professionnel <input type="file" th:field="*{situation.statutPro}"></p>
+            <p>Statut personnel: <select th:field="*{situation.statutPerso}">
+                                    <option>Hétéro</option>
+                                    <option>Homo</option>
+                                    <option>Autre</option>
+                                </select>
+            <p>Nombre d'enfant(s) <input type="number" th:field="*{situation.numbOfChildren}"></p>
+            <p>Fumeur <input type="checkbox" th:field="*{situation.smoking}"> Alcool <input type="checkbox" th:field="*{situation.alcool}"></p>
+        </fieldset>
+        <fieldset>
+            <legend>Apparence</legend>
+                <p>Origine ethnique <select th:field="*{appearence.ethnicGroup}">
+                                        <option>Caucasienne</option>
+                                        <option>Latin</option>
+                                        <option>Asiatique</option>
+                                        <option>Africaine</option>
+                                        <option>Océanienne</option>
+                                        <option>Maghrebienne</option>
+                                        <option>Moyen-orientale</option>
+                                    </select>
+            </p>
+            <p>Taille <input type="number" th:field="*{appearence.length}"></p>
+            <p>Poids <input type="number" th:field="*{appearence.weight}"></p>
+            <p>Couleur des yeux <select th:field="*{appearence.eyes}">
+                                    <option>Bleu</option>
+                                    <option>Vert</option>
+                                    <option>Marron</option>
+                                </select>
+            </p>
+            <p>Type de cheveux <input type="text" th:field="*{appearence.hairType}"></p>
+            <p>Couleur des cheveux <select th:field="*{appearence.hair}">
+                                        <option>Blond</option>
+                                        <option>Brun</option>
+                                        <option>Chatain</option>
+                                        <option>gris</option>
+                                        <option>roux</option>
+                                        <option>autre</option>
+                                    </select>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Centre d'indérêts</legend>
+            <p>Loisirs:</p>
+            <p>Musique <input type="checkbox" th:field="*{hobby.leisure}">
+                Cinéma <input type="checkbox" th:field="*{hobby.leisure}">
+                Arts <input type="checkbox" th:field="*{hobby.leisure}">
+                Littérature <input type="checkbox" th:field="*{hobby.leisure}">
+                Autre <input type="checkbox" th:field="*{hobby.leisure}">
+            </p>
+            <p>Sports:</p>
+            <p>Jogging <input type="checkbox" th:field="*{hobby.sport}">
+                Football <input type="checkbox" th:field="*{hobby.sport}">
+                Tennis <input type="checkbox" th:field="*{hobby.sport}">
+                Arts martiaux <input type="checkbox" th:field="*{hobby.sport}">
+                Basketball <input type="checkbox" th:field="*{hobby.sport}">
+                Golf <input type="checkbox" th:field="*{hobby.sport}">
+                Autre <input type="checkbox" th:field="*{hobby.sport}">
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Multimedia</legend>
+            <p>Type de media <select th:field="*{multimedia.mediaType}">
+                                <option>Musique</option>
+                                <option>Film</option>
+                                <option>Série</option>
+                                <option>Jeux videos</option>
+                            </select>
+            </p>
+            <p>Genre de media <select th:field="*{multimedia.kindOfMedia}">
+                                <option>Classique</option>
+                                <option>Fantastique</option>
+                                <option>Polar</option>
+                                <option>Comédie</option>
+                                <option>romantique</option>
+                                <option>Culte</option>
+                            </select>
+            </p>
+            <p>Artiste <input type="text" th:field="*{multimedia.artist}"></p>
+            <p>Titre <input type="text" th:field="*{multimedia.title}"></p>
+        </fieldset>
+        <p><input type="reset" value="EFFACER"><input type="submit" value="VALIDER"></p>
     </form>
-
 </body>
 </html>

@@ -17,6 +17,10 @@ public class Appearence {
     private Long idApp;
 
     @NotNull
+    @Column(name = "groupe_ethnique",length = 25)
+    private String etnicGroup;
+
+    @NotNull
     @Column(name = "taille",length = 3)
     private Integer length;
 
@@ -39,7 +43,8 @@ public class Appearence {
     public Appearence() {
     }
 
-    public Appearence(@NotNull Integer length, @NotNull String eyes, @NotNull String hair, @NotNull String hairType, @NotNull Float weight) {
+    public Appearence(@NotNull Integer length, @NotNull String etnicGroup,@NotNull String eyes, @NotNull String hair, @NotNull String hairType, @NotNull Float weight) {
+        this.etnicGroup = etnicGroup;
         this.length = length;
         this.eyes = eyes;
         this.hair = hair;
@@ -53,6 +58,14 @@ public class Appearence {
 
     public void setIdApp(Long idApp) {
         this.idApp = idApp;
+    }
+
+    public String getEtnicGroup() {
+        return etnicGroup;
+    }
+
+    public void setEtnicGroup(String etnicGroup) {
+        this.etnicGroup = etnicGroup;
     }
 
     public Integer getLength() {

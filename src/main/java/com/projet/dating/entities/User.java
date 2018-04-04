@@ -21,7 +21,7 @@ public class User implements Serializable{
     @JoinColumn(name = "id_situation")
     private Situation sit;
     @ManyToMany
-    private List<Hobbie> hobbiesList;
+    private List<Hobby> hobbiesList;
     @ManyToOne
     @JoinColumn(name = "id_adr")
     private Address adr;
@@ -63,11 +63,11 @@ public class User implements Serializable{
 
     @Column(name = "pseudo", length = 15)
     @NotNull
-    private String IdUser;
+    private String idUser;
 
     @Column(name = "mot_de_passe", length = 8)
     @NotBlank
-    private String passCode;
+    private String password;
 
     @Column(name = "description", length = 15)
     @NotBlank
@@ -80,15 +80,15 @@ public class User implements Serializable{
     public User() {
     }
 
-    public User(String emailUser, Character gender, String lastName, String firstName, String birthDate, String phone, String idUser, String passCode, String description, Integer userType) {
+    public User(String emailUser, Character gender, String lastName, String firstName, String birthDate, String phone, String idUser, String password, String description, Integer userType) {
         this.emailUser = emailUser;
         this.gender = gender;
         this.lastName = lastName;
         this.firstName = firstName;
         this.birthDate = birthDate;
         this.phone = phone;
-        this.IdUser = idUser;
-        this.passCode = passCode;
+        this.idUser = idUser;
+        this.password = password;
         this.description = description;
         this.userType = userType;
     }
@@ -142,19 +142,19 @@ public class User implements Serializable{
     }
 
     public String getIdUser() {
-        return IdUser;
+        return idUser;
     }
 
     public void setIdUser(String idUser) {
-        IdUser = idUser;
+        idUser = idUser;
     }
 
-    public String getPassCode() {
-        return passCode;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassCode(String passCode) {
-        this.passCode = passCode;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getDescription() {
