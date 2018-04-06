@@ -1,6 +1,7 @@
 package com.projet.dating.controller;
 
 import com.projet.dating.entities.*;
+import com.projet.dating.enums.GenderUser;
 import com.projet.dating.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,7 @@ public class FormController {
     @GetMapping("/registration")
     public String getFormRegistration(ModelMap mm){
         mm.addAttribute("user",new User());
+        mm.addAttribute("gender", GenderUser.values());
         mm.addAttribute("address",new Address());
         mm.addAttribute("picture",new Picture());
         mm.addAttribute("situation",new Situation());
@@ -52,6 +54,7 @@ public class FormController {
                                @Valid @ModelAttribute(value = "multimedia") Multimedia multi, BindingResult multiResult,
                                ModelMap mm) {
         mm.addAttribute("user",new User());
+        mm.addAttribute("gender", GenderUser.values());
         mm.addAttribute("address",new Address());
         mm.addAttribute("picture",new Picture());
         mm.addAttribute("situation",new Situation());
@@ -72,7 +75,7 @@ public class FormController {
 
         ms.saveMultimedia(multi);
 
-        return "registration";
+        return "redirect:/registration";
     }
 
 

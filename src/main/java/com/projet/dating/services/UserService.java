@@ -25,7 +25,7 @@ public class UserService {
         ur.saveAll(usersList);
     }
     public User saveUser(User user){ return ur.save(user); }
-   // public User findUserByEmailUserAndPassword(String emailUser, String password){ return ur.findUserByEmailAndPassword(emailUser, password);}
+    //public User findUserByEmailAndPassword(String emailUser, String password){ return ur.findUserByEmailAndPassword(emailUser, password);}
 
     
     //CRUD

@@ -31,7 +31,7 @@ public class Address {
     @Column(name = "type_rue",length = 25)
     private String streetType;
 
-    @NotNull
+    //@NotNull
     @Column(name = "nom_voie",length = 50)
     private String streetName;
 

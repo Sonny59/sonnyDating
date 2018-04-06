@@ -1,11 +1,12 @@
 package com.projet.dating.entities;
 
+import com.projet.dating.enums.GenderUser;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.List;
 
@@ -39,19 +40,16 @@ public class User implements Serializable{
 
     @Id
     @Column(name = "email", length = 15)
-    @NotNull
     private String emailUser;
 
-    @Column(name = "sexe", length = 1)
-    @NotNull
-    private Character gender;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "sexe",nullable = false)
+    private GenderUser gender;
 
     @Column(name = "nom", length = 25)
-    @NotNull
     private String lastName;
 
     @Column(name = "prenom", length = 50)
-    @NotNull
     private String firstName;
 
     @Column(name = "date_de_naissance")
@@ -59,29 +57,25 @@ public class User implements Serializable{
     private String birthDate;
 
     @Column(name = "tel", length = 10)
-    @NotNull
+    //@Pattern(regexp = "^0[0-9]{9}$")
     private String phone;
 
     @Column(name = "pseudo", length = 15)
-    @NotNull
     private String idUser;
 
     @Column(name = "mot_de_passe", length = 8)
-    @NotBlank
     private String password;
 
     @Column(name = "description", length = 15)
-    @NotBlank
     private String description;
 
     @Column(name = "type_utilisateur", length = 15)
-    @NotNull
     private Integer userType;
 
     public User() {
     }
 
-    public User(String emailUser, Character gender, String lastName, String firstName, String birthDate, String phone, String idUser, String password, String description, Integer userType) {
+    public User(String emailUser, GenderUser gender, String lastName, String firstName, String birthDate, String phone, String idUser, String password, String description, Integer userType) {
         this.emailUser = emailUser;
         this.gender = gender;
         this.lastName = lastName;
@@ -102,11 +96,11 @@ public class User implements Serializable{
         this.emailUser = emailUser;
     }
 
-    public Character getGender() {
+    public GenderUser getGender() {
         return gender;
     }
 
-    public void setGender(Character gender) {
+    public void setGender(GenderUser gender) {
         this.gender = gender;
     }
 

@@ -18,7 +18,7 @@
 </header>
 <h1>INSCRIPTION</h1>
 <div>
-    <form action="@{/registration}" method="post">
+    <form th:action="@{/registration}" method="post">
         <fieldset>
             <legend>Utilisateur</legend>
             <p>Type d'utilisateur: <select th:field="*{user.userType}">
@@ -27,9 +27,12 @@
             </select>
             </p>
             <p>Sexe: <select th:field="*{user.gender}">
-                <option value="Homme">Homme</option>
+                <option value="" th:text="${user.gender}" selected></option>
+                <option th:each="s : ${gender}" th:value="${s}" th:text="${s.name()}"></option>
+
+                <!--<option value="Homme">Homme</option>
                 <option value="Femme">Femme</option>
-                <option value="Autre">Autre</option>
+                <option value="Autre">Autre</option>-->
             </select>
             </p>
             <p>Email <input type="text" th:field="*{user.emailUser}"></p>
@@ -134,13 +137,13 @@
                 Autre <input type="checkbox" th:name="autre" th:checked="*{hobby.leisure}">
             </p>
             <p>Sports:</p>
-            <p>Jogging <input type="checkbox" th:name="jogging" th:field="*{hobby.sport}" th:value=true>
-                Football <input type="checkbox" th:name="football" th:field="*{hobby.sport}" th:value=true>
-                Tennis <input type="checkbox" th:name="tennis" th:field="*{hobby.sport}" th:value=true>
-                Arts martiaux <input type="checkbox" th:name="artsMartiaux" th:field="*{hobby.sport}" th:value=true>
-                Basketball <input type="checkbox" th:name="basketball" th:field="*{hobby.sport}" th:value=true>
-                Golf <input type="checkbox" th:name="golf" th:field="*{hobby.sport}" th:value=true>
-                Autre <input type="checkbox" th:name="autre" th:field="*{hobby.sport}" th:value=true>
+            <p>Jogging <input type="checkbox" th:name="jogging" th:checked="*{hobby.sport}">
+                Football <input type="checkbox" th:name="football" th:checked="*{hobby.sport}">
+                Tennis <input type="checkbox" th:name="tennis" th:checked="*{hobby.sport}">
+                Arts martiaux <input type="checkbox" th:name="artsMartiaux" th:checked="*{hobby.sport}">
+                Basketball <input type="checkbox" th:name="basketball" th:checked="*{hobby.sport}">
+                Golf <input type="checkbox" th:name="golf" th:checked="*{hobby.sport}" >
+                Autre <input type="checkbox" th:name="autre" th:checked="*{hobby.sport}">
             </p>
         </fieldset>
         <fieldset>

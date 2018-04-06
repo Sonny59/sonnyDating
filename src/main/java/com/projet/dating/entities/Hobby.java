@@ -18,11 +18,11 @@ public class Hobby {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idHob;
 
-    @NotNull
+    //@NotNull
     @Column(name = "sport",length = 25)
     private String sport;
 
-    @NotNull
+    //@NotNull
     @Column(name = "loisir",length = 25)
     private String leisure;
 
