@@ -7,45 +7,55 @@
 
 </head>
 <body>
-    <h1>INSCRIPTION</h1>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href="@{index}">Accueil</a></li>
+            <li><a th:href="@{login}">Connexion</a></li>
+            <li><a href="#">Inscription</a></li>
+        </ul>
+    </nav>
+</header>
+<h1>INSCRIPTION</h1>
+<div>
     <form action="@{/registration}" method="post">
         <fieldset>
             <legend>Utilisateur</legend>
-                <p>Type d'utilisateur: <select th:field="*{user.userType}">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                        </select>
-                </p>
-                <p>Sexe: <select th:field="*{user.gender}">
-                                <option value="Homme">Homme</option>
-                                <option value="Femme">Femme</option>
-                                <option value="Autre">Autre</option>
-                        </select>
-                </p>
-                <p>Email <input type="text" th:field="*{user.emailUser}"></p>
-                <p>Pseudo <input type="text" th:field="*{user.idUser}"></p>
-                <p>Mot de passe <input type="password" th:field="*{user.password}"></p>
-                <p>Nom <input type="text" th:field="*{user.lastName}"></p>
-                <p>prenom <input type="text" th:field="*{user.firstname}"></p>
-                <p>Date de naissance <input type="date" th:field="*{user.birthDate}"></p>
-                <p>Tél <input type="text" th:field="*{user.phone}"></p>
-                <p>description: </p><textarea rows="5" cols="30" th:field="*{user.descrition}">Vous pouvez vous décrire votre description ici.</textarea>
+            <p>Type d'utilisateur: <select th:field="*{user.userType}">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            </p>
+            <p>Sexe: <select th:field="*{user.gender}">
+                <option value="Homme">Homme</option>
+                <option value="Femme">Femme</option>
+                <option value="Autre">Autre</option>
+            </select>
+            </p>
+            <p>Email <input type="text" th:field="*{user.emailUser}"></p>
+            <p>Pseudo <input type="text" th:field="*{user.idUser}"></p>
+            <p>Mot de passe <input type="password" th:field="*{user.password}"></p>
+            <p>Nom <input type="text" th:field="*{user.lastName}"></p>
+            <p>prenom <input type="text" th:field="*{user.firstName}"></p>
+            <p>Date de naissance <input type="date" th:field="*{user.birthDate}"></p>
+            <p>Tél <input type="text" th:field="*{user.phone}"></p>
+            <p>description: </p><textarea rows="5" cols="30" th:field="*{user.description}">Vous pouvez vous décrire votre description ici.</textarea>
         </fieldset>
         <fieldset>
             <legend>Adresse</legend>
             <p>N° de voie: <input type="number" th:field="*{address.num}"></p>
 
             <p>Préfixe: <select th:field="*{address.prefix}">
-                            <option>Bis</option>
-                            <option>Ter</option>
-                            <option>Quater</option>
-                        </select>
+                <option value="Bis">Bis</option>
+                <option value="Ter">Ter</option>
+                <option value="Quater">Quater</option>
+            </select>
             </p>
             <p>Type de voie: <select th:field="*{address.streetType}">
-                                <option>Rue</option>
-                                <option>Boulevard</option>
-                                <option>Avenue</option>
-                            </select>
+                <option value="Rue">Rue</option>
+                <option value="Boulevard">Boulevard</option>
+                <option value="Avenue">Avenue</option>
+            </select>
             </p>
             <p>Nom de voie <input type="text" th:field="*{address.streetName}"></p>
             <p>Complément <input type="text" th:field="*{address.complt}"></p>
@@ -55,97 +65,111 @@
         <fieldset>
             <legend>Photos</legend>
             <p>Lien URL photo <input type="file" th:field="*{picture.link}"></p>
-            <p>Note <input type="text" th:field="*{picture.note}"></p>
+
         </fieldset>
         <fieldset>
             <legend>Situation</legend>
             <p>Orientation sexuelle: <select th:field="*{situation.orientation}">
-                                        <option>Hétéro</option>
-                                        <option>Homo</option>
-                                        <option>Autre</option>
-                                    </select>
+                <option value="Hetero">Hétéro</option>
+                <option value="Homo">Homo</option>
+                <option value="Autre">Autre</option>
+            </select>
             </p>
-            <p>Statut Professionnel <input type="file" th:field="*{situation.statutPro}"></p>
+            <p>Statut Professionnel <input type="text" th:field="*{situation.statutPro}"></p>
             <p>Statut personnel: <select th:field="*{situation.statutPerso}">
-                                    <option>Hétéro</option>
-                                    <option>Homo</option>
-                                    <option>Autre</option>
-                                </select>
+                <option value="Marie">Marié(e)</option>
+                <option value="Homme">Concubinage</option>
+                <option value="Celibataire">Célibataire</option>
+            </select>
             <p>Nombre d'enfant(s) <input type="number" th:field="*{situation.numbOfChildren}"></p>
-            <p>Fumeur <input type="checkbox" th:field="*{situation.smoking}"> Alcool <input type="checkbox" th:field="*{situation.alcool}"></p>
+            <p>Fumeur: <select th:field="*{situation.smoking}">
+                <option value="Non">Non</option>
+                <option value="Oui">Oui</option>
+                <option value="Occassionnellement">Occassionnellement</option>
+            </select>
+            <p>Alcool: <select th:field="*{situation.alcool}">
+                <option value="Non">Non</option>
+                <option value="Oui">Oui</option>
+                <option value="Occassionnellement">Occassionnellement</option>
+            </select>
         </fieldset>
         <fieldset>
             <legend>Apparence</legend>
-                <p>Origine ethnique <select th:field="*{appearence.ethnicGroup}">
-                                        <option>Caucasienne</option>
-                                        <option>Latin</option>
-                                        <option>Asiatique</option>
-                                        <option>Africaine</option>
-                                        <option>Océanienne</option>
-                                        <option>Maghrebienne</option>
-                                        <option>Moyen-orientale</option>
-                                    </select>
+            <p>Origine ethnique <select th:field="*{appearence.ethnicGroup}">
+                <option value="Caucasien">Caucasienne</option>
+                <option value="Latine">Latine</option>
+                <option value="Asiatique">Asiatique</option>
+                <option value="Africaine">Africaine</option>
+                <option value="Oceanienne">Océanienne</option>
+                <option value="Maghrebine">Maghrebine</option>
+                <option value="Moyen-orientale">Moyen-orientale</option>
+            </select>
             </p>
             <p>Taille <input type="number" th:field="*{appearence.length}"></p>
             <p>Poids <input type="number" th:field="*{appearence.weight}"></p>
             <p>Couleur des yeux <select th:field="*{appearence.eyes}">
-                                    <option>Bleu</option>
-                                    <option>Vert</option>
-                                    <option>Marron</option>
-                                </select>
+                <option value="Bleu">Bleu</option>
+                <option value="Vert">Vert</option>
+                <option value="Marron">Marron</option>
+            </select>
             </p>
             <p>Type de cheveux <input type="text" th:field="*{appearence.hairType}"></p>
             <p>Couleur des cheveux <select th:field="*{appearence.hair}">
-                                        <option>Blond</option>
-                                        <option>Brun</option>
-                                        <option>Chatain</option>
-                                        <option>gris</option>
-                                        <option>roux</option>
-                                        <option>autre</option>
-                                    </select>
+                <option value="Blond">Blond</option>
+                <option value="Brun">Brun</option>
+                <option value="Chatain">Chatain</option>
+                <option value="Gris">Gris</option>
+                <option value="Roux">roux</option>
+                <option value="Autre">autre</option>
+            </select>
             </p>
         </fieldset>
         <fieldset>
             <legend>Centre d'indérêts</legend>
             <p>Loisirs:</p>
-            <p>Musique <input type="checkbox" th:field="*{hobby.leisure}">
-                Cinéma <input type="checkbox" th:field="*{hobby.leisure}">
-                Arts <input type="checkbox" th:field="*{hobby.leisure}">
-                Littérature <input type="checkbox" th:field="*{hobby.leisure}">
-                Autre <input type="checkbox" th:field="*{hobby.leisure}">
+            <p>Musique <input type="checkbox" th:name="musique" th:checked="*{hobby.leisure}">
+                Cinéma <input type="checkbox" th:name="cinema" th:checked="*{hobby.leisure}">
+                Arts <input type="checkbox" th:name="arts" th:checked="*{hobby.leisure}">
+                Littérature <input type="checkbox" th:name="litterature" th:checked="*{hobby.leisure}">
+                Autre <input type="checkbox" th:name="autre" th:checked="*{hobby.leisure}">
             </p>
             <p>Sports:</p>
-            <p>Jogging <input type="checkbox" th:field="*{hobby.sport}">
-                Football <input type="checkbox" th:field="*{hobby.sport}">
-                Tennis <input type="checkbox" th:field="*{hobby.sport}">
-                Arts martiaux <input type="checkbox" th:field="*{hobby.sport}">
-                Basketball <input type="checkbox" th:field="*{hobby.sport}">
-                Golf <input type="checkbox" th:field="*{hobby.sport}">
-                Autre <input type="checkbox" th:field="*{hobby.sport}">
+            <p>Jogging <input type="checkbox" th:name="jogging" th:field="*{hobby.sport}" th:value=true>
+                Football <input type="checkbox" th:name="football" th:field="*{hobby.sport}" th:value=true>
+                Tennis <input type="checkbox" th:name="tennis" th:field="*{hobby.sport}" th:value=true>
+                Arts martiaux <input type="checkbox" th:name="artsMartiaux" th:field="*{hobby.sport}" th:value=true>
+                Basketball <input type="checkbox" th:name="basketball" th:field="*{hobby.sport}" th:value=true>
+                Golf <input type="checkbox" th:name="golf" th:field="*{hobby.sport}" th:value=true>
+                Autre <input type="checkbox" th:name="autre" th:field="*{hobby.sport}" th:value=true>
             </p>
         </fieldset>
         <fieldset>
             <legend>Multimedia</legend>
             <p>Type de media <select th:field="*{multimedia.mediaType}">
-                                <option>Musique</option>
-                                <option>Film</option>
-                                <option>Série</option>
-                                <option>Jeux videos</option>
-                            </select>
+                <option value="Musique">Musique</option>
+                <option value="Jeux videos">Jeux videos</option>
+                <option value="Film">Film</option>
+                <option value="Serie">Série</option>
+            </select>
             </p>
             <p>Genre de media <select th:field="*{multimedia.kindOfMedia}">
-                                <option>Classique</option>
-                                <option>Fantastique</option>
-                                <option>Polar</option>
-                                <option>Comédie</option>
-                                <option>romantique</option>
-                                <option>Culte</option>
-                            </select>
+                <option value="Classique">Classique</option>
+                <option value="Fantastique">Fantastique</option>
+                <option value="Polar">Polar</option>
+                <option value="Comedie">Comédie</option>
+                <option value="Romantique">romantique</option>
+                <option value="Culte">Culte</option>
+            </select>
             </p>
             <p>Artiste <input type="text" th:field="*{multimedia.artist}"></p>
             <p>Titre <input type="text" th:field="*{multimedia.title}"></p>
         </fieldset>
         <p><input type="reset" value="EFFACER"><input type="submit" value="VALIDER"></p>
     </form>
+</div>
+<footer>
+    <p>Dating &copy; tous droits réservés 2018</p>
+</footer>
+
 </body>
 </html>

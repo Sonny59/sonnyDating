@@ -9,7 +9,7 @@ import java.util.List;
 public class Situation {
 
 
-    @OneToMany(mappedBy = "sit")
+    @OneToMany(mappedBy = "situ")
     private List<User> usersList;
 
     @Id

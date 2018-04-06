@@ -9,7 +9,7 @@ public class IndexController {
 
     @GetMapping("/index")
     public String vueAccueil() {
-        return "/index";
+        return "index";
     }
 
 

@@ -5,9 +5,8 @@
 @media (min-width: 900px) {}
 /**************Responsive************************/
 body{
-     background: lightgray;
-
- }
+    background: lightgray;
+}
 body{
     background-image: url("../img/love.jpg");
 }
@@ -21,22 +20,19 @@ body{
     background-position: center center;
     background-size: cover;
 }
-fieldset {
-    width: 300px;
-}
-h1,fieldset{
+h1,form{
     text-align: center;
 }
 header,footer{
     height: 100px;
     background: gray;
 }
-nav{
-    left: 500px;
-    display: inline-block;
-}
+
 ul{
     display: inline-block;
     list-style: none;
     text-decoration: none;
+}
+div{
+    height: 550px;
 }

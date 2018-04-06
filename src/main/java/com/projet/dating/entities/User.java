@@ -3,6 +3,7 @@ package com.projet.dating.entities;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -19,7 +20,7 @@ public class User implements Serializable{
     private Appearence app;
     @ManyToOne
     @JoinColumn(name = "id_situation")
-    private Situation sit;
+    private Situation situ;
     @ManyToMany
     private List<Hobby> hobbiesList;
     @ManyToOne
@@ -54,7 +55,7 @@ public class User implements Serializable{
     private String firstName;
 
     @Column(name = "date_de_naissance")
-    @DateTimeFormat
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String birthDate;
 
     @Column(name = "tel", length = 10)
@@ -171,5 +172,9 @@ public class User implements Serializable{
 
     public void setUserType(Integer userType) {
         this.userType = userType;
+    }
+
+    public void setSituation(Situation situ) {
+        this.situ = situ;
     }
 }

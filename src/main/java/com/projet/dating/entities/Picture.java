@@ -23,8 +23,7 @@ public class Picture {
     @Column(name = "url_photo")
     private String link;
 
-    @NotNull
-    @NotBlank
+
     @Column(name = "note")
     private Integer note;
 

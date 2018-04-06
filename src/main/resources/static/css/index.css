@@ -1,8 +1,30 @@
+/**************Responsive************************/
+@media (max-device-width: 480px) {}
+@media (max-width: 600px) {}
+@media (min-width: 600px) and (max-width: 900px) {}
+@media (min-width: 900px) {}
+/**************Responsive************************/
 body{
     background: lightgray;
     
 }
-h1{
+body{
+    background-image: url("../img/love.jpg");
+}
+body{
+    background-repeat: no-repeat;
+}
+body{
+    background-attachment: fixed;
+}
+body{
+    background-position: center center;
+    background-size: cover;
+}
+fieldset {
+    width: 300px;
+}
+h1,form{
     text-align: center;
 }
 header,footer{
@@ -18,9 +40,8 @@ ul{
     list-style: none;
     text-decoration: none;
 }
-body{
-    background-image: url("../img/love.jpg");
-}
 div{
     height: 650px;
 }
+
+

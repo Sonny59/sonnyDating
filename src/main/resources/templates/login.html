@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/log.css">
     <title>Login</title>
 </head>
 <body>
-
+<header>
+    <nav>
+        <ul>
+            <li><a th:href="@{index}">Accueil</a></li>
+            <li><a href="#">Connexion</a></li>
+            <li><a th:href="@{registration}">Inscription</a></li>
+        </ul>
+    </nav>
+</header>
+<h1>Connexion</h1>
+<form action="@{/login}" method="post">
+    <p>Login <input type="email" th:field="*{user.emailUser}"></p>
+    <p>Mot de passe <input type="password" th:field="*{user.password}"></p>
+    <p><input type="reset" value="EFFACER"><input type="submit" value="VALIDER"></p>
+</form>
+<div></div>
+<footer>
+    <p>Dating &copy; tous droits réservés 2018</p>
+</footer>
 </body>
 </html>
